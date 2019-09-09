@@ -10,7 +10,8 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="text/babel">
+    <!-- 함수형 컴포넌트 -->
+    <!-- <script type="text/babel">
       class GuGuDan extends React.Component {
         constructor(props) {
           super(props);
@@ -32,6 +33,7 @@
 
         render() {
           return (
+            
             <div>
               {this.state.first} 곱하기 {this.state.second} 는?
               <input type="number" value={this.state.value} 
@@ -40,6 +42,47 @@
             </div>
           )
         }
+      }
+    </script> -->
+    <script type="text/babel">
+      const GuGuDan = () => {
+        const [first, setFirst] = React.useState(Math.ceil(Math.random() * 9));
+        const [second, setSecond] = React.useState(Math.ceil(Math.random() * 9));
+        const [value, setValue] = React.useState('');
+        const [result, setResult] = React.useState('');
+        const inputRef = React.useRef(null);
+
+        const onSubmitForm = (e) => {
+          e.preventDefault();
+
+          if (+value === first * second) {
+            setValue('');
+            setResult(`${value} 정답!!`);
+            setFirst(Math.ceil(Math.random() * 9));
+            setSecond(Math.ceil(Math.random() * 9));
+            inputRef.current.focus();
+          } else {
+            setValue('');
+            setResult('땡!!');
+            inputRef.current.focus();
+          }
+        };
+
+        const onChangeValue = (value) => {
+          setValue(value);
+        };
+
+        return (
+          <React.Fragment>
+            <form onSubmit={onSubmitForm}>
+              <div>{first} 곱하기 {second} 는?</div>
+              <input type="number" value={value} ref={inputRef}
+              onChange={(e) => { onChangeValue(e.target.value) }} />
+              <button>제출</button>
+              <div>{result}</div>
+            </form>
+          </React.Fragment>
+        )
       }
     </script>
     <script type="text/babel">
