@@ -2,14 +2,21 @@ const React = require('react');
 
 class WordRelay extends React.Component {
   state = {
-    text: 'Hello, WebPack'
+    word: '제로초',
+    value: '',
+    result: ''
   };
 
   render() {
     return (
-      <React.Fragment>
-        <h1>{this.state.text}</h1>
-      </React.Fragment>
+      <>
+        <div>{this.state.word}</div>
+        <form onSubmit={this.onSubmitForm}>
+          <input ref={this.onRefInput} value={this.state.value} 
+          onChange={this.onChangeInput}/>
+        </form>
+        <div>{this.state.result}</div>
+      </>
     )
   }
 }
