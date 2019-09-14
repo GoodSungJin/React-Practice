@@ -21,6 +21,7 @@ const WordRelay = () => {
     inputRef.current.focus();
   };
 
+  // 함수 실행문으로 안만들어도 e.target을 받을 수 있음
   const onChangeInput = (e) => {
     setValue(e.target.value)
   };
