@@ -6,7 +6,7 @@ const Try = require('./Try');
 const NumberBaseball = () => {
   const [ value, setValue ] = useState('');
   const [ result, setResult ] = useState('');
-  const [ tries, setTries ] = useState([]);
+  const [ tries, setTries ] = useState(['가', '나', '다', '라', '마']);
 
   const onSubmitForm = () => {
 
@@ -26,7 +26,7 @@ const NumberBaseball = () => {
       </form>
       <div>시도: {tries.length}</div>
       <ul>
-        <Try value={tries}/>
+        <Try arr={tries} />
       </ul>
     </>
   )

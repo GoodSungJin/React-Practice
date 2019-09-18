@@ -1,12 +1,16 @@
 const React = require('react');
 
-const Try = () => {
+const Try = (props) => {
   return (
-    this.props.value.map((item, idx) => {
-      return (
-        <li key={idx}>{item}</li>
-      );
-    })
+    <>
+      {
+        props.arr.map((item, idx) => {
+          return (
+            <li key={item + idx}>{item}</li>
+          );
+        })
+      }
+    </>
   )
 };
 
