@@ -1,17 +1,15 @@
-const React = require('react');
+import React, { memo } from 'react';
 
-const Try = (props) => {
+const Try = memo((props) => {
   return (
     <>
-      {
-        props.arr.map((item, idx) => {
-          return (
-            <li key={item + idx}>{item}</li>
-          );
-        })
-      }
+      {props.arr.map((item, idx) => {
+        return (
+          <li key={item + idx}>{item}</li>
+        );
+      })}
     </>
   )
-};
+});
 
 module.exports = Try;

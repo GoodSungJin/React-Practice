@@ -8,17 +8,29 @@ const NumberBaseball = () => {
   const [ result, setResult ] = useState('');
   const [ tries, setTries ] = useState(['가', '나', '다', '라', '마']);
 
+  const [count, setCount] = useState(0);
+
+  const shouldComponentUpdate = (nextProps, nextState, nextContext) => {
+     if (value !== nextState.value) return true;
+     return false;
+  };
+
   const onSubmitForm = () => {
 
   };
 
-  const onChangeInput = () => {
+  const onChangeInput = (e) => {
+    setValue();
+  };
 
+  const increase = () => {
+    setCount(1);
   };
 
 
   return (
     <>
+    {console.log('렌더링됨')}
       <h1>{result}</h1>
       <form onSubmit={onSubmitForm}>
         <input maxLength={4} value={value}
@@ -28,6 +40,7 @@ const NumberBaseball = () => {
       <ul>
         <Try arr={tries} />
       </ul>
+      <button onClick={increase}>클릭</button>
     </>
   )
 };
