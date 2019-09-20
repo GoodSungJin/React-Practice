@@ -35,7 +35,7 @@ const TodoList = () => {
     setValue('');
   };
 
-
+  // todo 삭제
   const removeTodo = (id) => {
     setTodos(todos.filter(todo => id !== todo.id))
   };
