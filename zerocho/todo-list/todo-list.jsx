@@ -29,10 +29,14 @@ const TodoList = () => {
     if (e.charCode !== 13) return;
 
     setTodos((prev) => {
-      return [...prev, { id: 4, content: value, completed: false }];
+      return [...prev, { id: createId(), content: value, completed: false }];
     });
 
     setValue('');
+  };
+
+  const createId = () => {
+    return todos.length ? Math.max(...todos.map(todo => todo.id)) + 1 : 1;
   };
 
   // todo 삭제
