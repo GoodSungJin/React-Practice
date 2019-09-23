@@ -44,7 +44,7 @@ const TodoList = () => {
     setTodos(todos.filter(todo => id !== todo.id))
   };
 
-
+  // 렌더링 최적화
   return (
     <div className="container">
       <h1 className="title">Todos</h1>
