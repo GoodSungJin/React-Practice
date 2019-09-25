@@ -14,6 +14,7 @@ const TodoList = () => {
   // input의 value 저장
   const onChangeValue = (e) => {
     setValue(e.target.value);
+    
   };
 
   // 체크박스 변경
