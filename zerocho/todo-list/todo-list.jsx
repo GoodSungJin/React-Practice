@@ -10,7 +10,8 @@ const TodoList = () => {
   ]);
 
   const [value, setValue] = useState('');
-
+  // 클래스로 바꿔보기
+  
   // input의 value 저장
   const onChangeValue = (e) => {
     setValue(e.target.value);
